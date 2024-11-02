@@ -1,1 +1,15 @@
-/* put canvas in center of page and use flex */
+body
+{
+    background-color: lightskyblue;
+}
+h1
+{
+    font-family: 'Ubuntu', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#canvas
+{
+    width: 288px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
