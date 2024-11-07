@@ -6,11 +6,26 @@ square.style.height = "16px";
 square.style.width = "16px";
 square.style.backgroundColor = 'transparent';
 
-square.addEventListener("mouseover", () => {
-    square.style.backgroundColor = 'black';
-});
+function colorSquare(target)
+{
+    target.style.backgroundColor = 'black';
+    console.log("hover detected");
+}
 
 for (let i = 0; i < (16*16); i++)
 {
     canvas.appendChild(square.cloneNode(true)); // clone each element since we can only point one at a time
 }
+
+let menu = document.querySelector('#menu');
+
+canvas.addEventListener('mouseover', (event) => {
+    let target = event.target;
+
+    switch(target.className) {
+        case 'colorsquare':
+            console.log('Detected square hover');
+            colorSquare(target);
+            break;
+    }
+});
