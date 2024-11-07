@@ -5,11 +5,16 @@ body
 h1
 {
     font-family: 'Ubuntu', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 4px 0;
 }
 #canvas
 {
-    width: 288px;
+    width: 544px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+button
+{
+    margin: 8px 0;
 }

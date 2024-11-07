@@ -2,14 +2,14 @@
 const square = document.createElement('div');
 square.className = "colorsquare";
 square.style.border = "1px solid black";
-square.style.height = "16px";
-square.style.width = "16px";
+square.style.height = "32px";
+square.style.width = "32px";
 square.style.backgroundColor = 'transparent';
 
 function colorSquare(target)
 {
     target.style.backgroundColor = 'black';
-    console.log("hover detected");
+    console.log("hover detected and square colored successfully");
 }
 
 for (let i = 0; i < (16*16); i++)
@@ -24,8 +24,42 @@ canvas.addEventListener('mouseover', (event) => {
 
     switch(target.className) {
         case 'colorsquare':
-            console.log('Detected square hover');
             colorSquare(target);
             break;
     }
+});
+
+// canvas change button
+const canvaschangebtn = document.querySelector("#canvaschange");
+canvaschangebtn.addEventListener("click", () => {
+    while (true)
+    {
+        let size = prompt("How many squares per row? (2 minimum, 100 maximum)");
+        
+        if (size === null)
+        {
+            break; // cancel
+        }
+        else if (!(size>=2 & size<=100))
+        {
+            alert("Invalid size.");
+        }
+        else
+        {
+            while (canvas.firstChild) {
+                canvas.removeChild(canvas.lastChild);
+              }
+            for (let i = 0; i < (size*size); i++)
+            {
+                // specify new square
+                let squaresize = 544/size;
+                squaresize -= 2;
+                square.style.width = squaresize + "px";
+                square.style.height = squaresize + "px";
+                canvas.appendChild(square.cloneNode(true)); // clone each element since we can only point one at a time
+            }
+            break;
+        }
+    }
+
 });
